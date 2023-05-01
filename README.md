@@ -2,12 +2,20 @@
 # Blog-Projekt-Valdrin_VS
 Im Rahmen meines Studiums an der HFTM wurde ich beauftragt, ein Blog-System zu entwickeln. Dieses Projekt begleitet mich während des Studiums und erfordert sowohl Unterricht als auch Selbststudium zu Hause. Weitere Informationen dazu werden folgen mit dem Themeninhalt:
 
-- Ein Titel und eine kurze Beschreibung des Projekts    
-- Informationen darüber, wie das Projekt installiert wird und welche Abhängigkeiten erforderlich sind      
-- Anweisungen zum Ausführen des Projekts     
+- Informationen darüber, wie das Projekt installiert wird und welche Abhängigkeiten erforderlich sind  
 - Eine Liste der Hauptfunktionen und -fähigkeiten des Projekts     
 - Eine Anleitung zum Beitritt und zur Zusammenarbeit mit dem Projekt     
 - Lizenzinformationen und Haftungsausschlüsse
+
+# Anweisungen zum Ausführen des Projekts:
+Um die Software auszuführen, musst du im Visual Studio Code im Terminal folgenden Befehl eingeben: ./mvnw quarkus:dev.
+Anschließend kannst du deinen Webbrowser öffnen und diese Links eingeben:
+
+    Begrüßung: [Begrüssungs-Link](http://www.localhost:8080/hello)
+    Blog: [Blog-Link](http://www.localhost:8080/blog)
+
+
+
 =======
 # backend-blog
 
