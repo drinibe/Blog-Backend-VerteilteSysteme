@@ -18,4 +18,4 @@ jobs:
         cache: maven
     # Als dritter Schritt führen wir den Maven-Build durch
     - name: Build with Maven, Run Tests, Package and Integration-Tests
-      run: mvnw verify
+      run: mvn verify
