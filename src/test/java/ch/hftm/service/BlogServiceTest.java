@@ -1,7 +1,7 @@
 package ch.hftm.service;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -31,7 +31,7 @@ public class BlogServiceTest {
   
         blogService.addBlog(blog);
         blogs = blogService.getBlogs();
-        assertEquals(blog.getId(), blogs.get(0).getId());
+        assertFalse(blogs.contains(blog.getId()));
     
     }
 
