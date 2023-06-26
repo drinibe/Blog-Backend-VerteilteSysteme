@@ -29,4 +29,6 @@ public class BlogService {
         logger.info("Adding blog " + blog.getTitel());
         blogRepository.persist(blog);
     }
+
+    
 }
