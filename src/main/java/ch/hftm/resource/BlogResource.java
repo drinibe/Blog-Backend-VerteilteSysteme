@@ -5,6 +5,7 @@ import ch.hftm.service.BlogService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
@@ -27,5 +28,11 @@ public class BlogResource {
         this.blogService.addBlog(blog);
     }
 
+    @DELETE
+    @Path("/{id}")
+    public Response entfernenBlog(@PathParam("id") Long id) {
+        return this.blogService.entfernenBlog(id);
+
+    }
 
 }
