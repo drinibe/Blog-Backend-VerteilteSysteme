@@ -25,20 +25,11 @@ public class BlogService {
         return blogs;
     }
 
-    //Hier wird der Blog hinzugefügt.
-    //Dabei wird die Meldung ausgegeben obs funktioniert hat oder nicht.
-    //Dabei wird es zuerst hinzugefügt und dann geprüft und ein Status Code ausgegeben.
+
     @Transactional
-    public Response addBlog(Blog blog) {
+    public void addBlog(Blog blog) {
         blogRepository.persist(blog);
-        Long blogID = (long) blog.getId();
-        Blog aktuellerBlog = blogRepository.findById(blogID);
-        if(aktuellerBlog == null) {
-            logger.error("Der Blog mit der " + blog.getId() + " und " + blog.getTitel() + " wurde nicht hinzugefügt.");
-            return Response.status(416).build();
-        }
-        logger.info("Der Blog wurde erfolgreich hinzugefügt.");
-        return Response.status(201).build();
+        logger.info("Der Blog mit der ID " + blog.getId() + " und mit den Titel: "+ blog.getTitel() + " wurde erfolgreich hinzugefügt.");
     }
 
     // Blogs mit der ID suchen und löschen, gibt es die ID nicht wird eine Exception ausgelöst mit 404.

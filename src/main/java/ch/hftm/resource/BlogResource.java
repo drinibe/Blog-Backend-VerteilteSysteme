@@ -32,7 +32,6 @@ public class BlogResource {
     @Path("/{id}")
     public Response entfernenBlog(@PathParam("id") Long id) {
         return this.blogService.entfernenBlog(id);
-
     }
 
 }
