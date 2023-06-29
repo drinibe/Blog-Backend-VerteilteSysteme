@@ -2,11 +2,20 @@
 
 Hier erhält ihr die Spezifikationen und Dokumentation für mein BLOG-API, die es Entwicklern ermöglicht, auf die verschiedenen Funktionen und Endpunkte der API zuzugreifen.
 
+Alle Titel die Grün sind sind Fertig.
+><span style="color:Green">Fertig</span>
+
+Orange heisst es ist in arbeit.
+><span style="color:orange">in Arbeit</span>
+
+Rot bedeutet noch nicht fertig/angefangen
+><span style="color:red">Noch nicht fertig</span>
 ## Schemas
 
 ---
 
 ### Blog
+><span style="color:Green">Fertig</span>
 - `id`: number
 - `titel`: string
 - `beschreibung`: string
@@ -19,6 +28,7 @@ Hier erhält ihr die Spezifikationen und Dokumentation für mein BLOG-API, die e
 
 ---
 ### Kommentar
+><span style="color:Green">Fertig</span>
 - `id`: string
 - `kommentarText`: string
 - `kommentarAuthor`: Autor Schema
@@ -27,6 +37,7 @@ Hier erhält ihr die Spezifikationen und Dokumentation für mein BLOG-API, die e
 
 ---
 ### Autor
+><span style="color:Green">Fertig</span>
 - `id`: string
 - `vorname`: string
 - `nachname`: string
@@ -37,6 +48,7 @@ Hier erhält ihr die Spezifikationen und Dokumentation für mein BLOG-API, die e
 
 ---
 ### Gast
+><span style="color:Green">Fertig</span>
 - `id`: string
 - `vorname`: string
 - `nachname`: string
@@ -67,6 +79,7 @@ GET /author
 ```http request
 GET /blog
 ```
+><span style="color:orange">in Arbeit</span>
 - Query-Parameter: `sort` Sortiert eine liste von Blogs nach Alphabet (asc, desc)
 - Query-Parameter: `from` und `to` wählt die Blogs aus die sich in dieser Range sich Befinden nach Datum
 - Response: Gibt die sortierte Liste Zurück und auch nur die Blogs die `from` bis `to`. (200 OK)
@@ -77,6 +90,7 @@ GET /blog
 ```http request
 GET /blog/{postId}
 ```
+><span style="color:orange">in Arbeit</span>
 - Pfad-Parameter: `postId` um einen spezifischen Blog auszuwählen (benötigt)
 - Pfad-Parameter: `postTitel` um einen spezifischen Blog auszuwählen (benötigt)
 - Query-Parameter: `fields` wird gebraucht, wenn man nur spezifische Felder braucht
@@ -88,6 +102,7 @@ GET /blog/{postId}
 ```http request
 POST /blog
 ```
+><span style="color:red">Noch nicht fertig</span>
 - Header-Parameter: `id` (Benötigt)
 - Request Body: Blog Schema
 - Response: Erstellter Blog (201 Created)
@@ -98,6 +113,7 @@ POST /blog
 ```http request
 PUT /blog/{postId}
 ```
+><span style="color:red">Noch nicht fertig</span>
 - Pfad-Parameter: `postId` Um eine Blog auszuwählen, denn man ändern will (benötigt)
 - Request Body: Blog Schema
 - Response: Aktualisierter Blog (200 OK)
@@ -107,6 +123,7 @@ PUT /blog/{postId}
 ```http request
 PATCH /blog/{postId}
 ```
+><span style="color:red">Noch nicht fertig</span>
 - Pfad-Parameter: `postId` Um einen Blog auszuwählen, denn man ändern will (benötigt)
 - Request Body: Blog Schema (nur die zu aktualisierenden Felder)
 - Response: Teilweise aktualisierter Blog (200 OK)
@@ -117,6 +134,8 @@ PATCH /blog/{postId}
 ```http request
 DELETE /blog/{postId}
 ```
+><span style="color:Green">Fertig</span>
+
 - Pfad-Parameter: `postId` Um einen Blog auszuwählen, denn man Löschen will (benötigt)
 - Response: Keine (204 No Content)
 ---
@@ -129,6 +148,7 @@ DELETE /blog/{postId}
 ```http request
 GET /blog/{postId}/comments
 ```
+><span style="color:red">Noch nicht fertig</span>
 - Pfad-Parameter: `postId` Um denn Blog auszuwählen und die dazugehörigen Comments Darstellen (benötigt)
 - Query-Parameter: `sort` Um die Kommentare zu sortieren (asc, desc)
 - Response: Eine Liste von Kommentaren (200 OK)
@@ -139,6 +159,7 @@ GET /blog/{postId}/comments
 ```http request
 POST /blog/{postId}/comments
 ```
+><span style="color:red">Noch nicht fertig</span>
 
 - Pfad-Parameter: `postId` Um denn Blog auszuwählen und einen Kommentar in diesem Blog zu erstellen (benötigt)
 - Request Body: Comment Schema
@@ -150,6 +171,7 @@ POST /blog/{postId}/comments
 ```http request
 PUT /blog/{postId}/comments/{commentId}
 ```
+><span style="color:red">Noch nicht fertig</span>
 - Pfad-Parameter: `postId`, `commentId` selektiert den Blog und den Comment (benötigt)
 - Request Body: Comment Schema
 - Response: Aktualisierter Kommentar (200 OK)
@@ -160,6 +182,7 @@ PUT /blog/{postId}/comments/{commentId}
 ```http request
 PATCH /blog/{postId}/comments/{commentId}
 ```
+><span style="color:red">Noch nicht fertig</span>
 - Pfad-Parameter: `postId`, `commentId` selektiert den Blog und den Comment (benötigt)
 - Request Body: Comment Schema (nur die zu aktualisierenden Felder)
 - Response: Teilweise aktualisierter Kommentar (200 OK)
@@ -170,6 +193,7 @@ PATCH /blog/{postId}/comments/{commentId}
 ```http request
 DELETE /blog/{postId}/comments/{commentId}
 ```
+><span style="color:red">Noch nicht fertig</span>
 - Pfad-Parameter: `postId`, `commentId` (benötigt)
 - Response: Keine (204 No Content)
 

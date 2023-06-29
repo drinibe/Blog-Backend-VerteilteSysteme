@@ -31,10 +31,19 @@ public class BlogResource {
         this.blogService.addBlog(blog);
     }
 
+    @PUT
+    @Path("/{postId}")
+    public Response updateBlog(@PathParam("postId") int postId, Blog blog) {
+        return Response.ok().entity(this.blogService.updateBlog(postId,blog)).build();
+    }
+
     @DELETE
     @Path("/{id}")
     public Response entfernenBlog(@PathParam("id") Long id) {
         return this.blogService.entfernenBlog(id);
     }
+
+
+
 
 }

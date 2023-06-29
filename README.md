@@ -4,8 +4,11 @@ Im Rahmen meines Studiums an der HFTM wurde ich beauftragt, ein Blog-System zu e
 
 - Informationen darüber, wie das Projekt installiert wird und welche Abhängigkeiten erforderlich sind  
 - Eine Liste der Hauptfunktionen und -fähigkeiten des Projekts     
-- Eine Anleitung zum Beitritt und zur Zusammenarbeit mit dem Projekt     
-- Lizenzinformationen und Haftungsausschlüsse
+
+# Aufgaben, die noch offen sind, oder Schwierigkeiten, mit denen ich noch zu kämpfen habe:
+><span style="color:red">Pendent</span>
+- Schwierigkeiten bei: PUT oder PATCH Request, ein Query- oder Header-Parameter, ein Fehler-Response im Fehlerfall
+- Aufgaben umsetzen die von der API-Spezifikation
 
 # Anweisungen zum Ausführen des Projekts:
 Um die Software auszuführen, musst du im Visual Studio Code im Terminal folgenden Befehl eingeben: ./mvnw quarkus:dev.

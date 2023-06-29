@@ -45,6 +45,24 @@ public class BlogService {
         return Response.status(204).build();
     }
 
+    @Transactional
+    public Blog updateBlog(int id, Blog updatedBlog) {
+        Blog gefundenerBlog = this.blogRepository.findBlog(id);
+        if(gefundenerBlog != null) {
+
+            gefundenerBlog.setAuthor(updatedBlog.getAuthor());
+            gefundenerBlog.setTitel(updatedBlog.getTitel());
+            gefundenerBlog.setBeschreibung(updatedBlog.getBeschreibung());
+            gefundenerBlog.setLikeVonMir(updatedBlog.getLikeVonMir());
+            gefundenerBlog.setMeineFavoriten(updatedBlog.getMeineFavoriten());
+            //Blog Datum Fehlt, jedoch zu komplex momentan
+
+            this.blogRepository.update(gefundenerBlog);
+            return gefundenerBlog;
+        }
+
+        return null;
+    }
 
 
 
