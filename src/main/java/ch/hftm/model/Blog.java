@@ -37,7 +37,7 @@ public class Blog {
     @ManyToOne (cascade = CascadeType.ALL)
     private Gast gast;
 
-    //Gast
+    //Kommentar
     @ManyToOne (cascade = CascadeType.ALL)
     private Kommentar kommentar;
     

@@ -22,10 +22,6 @@ public class Author {
     private long id;
 
     @NonNull
-    @JsonbDateFormat("dd.MM.yyyy")
-    private LocalDate geburtstag;
-
-    @NonNull
     private String vorname;
 
     @NonNull
@@ -33,6 +29,10 @@ public class Author {
 
     @NonNull
     private String benutzername;
+
+    @NonNull
+    @JsonbDateFormat("dd.MM.yyyy")
+    private LocalDate geburtstag;
 
     @NonNull
     private String eMail;
