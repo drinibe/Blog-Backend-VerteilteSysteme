@@ -32,9 +32,11 @@ public class BlogResource {
     }
 
     @PUT
-    @Path("/{postId}")
-    public Response updateBlog(@PathParam("postId") int postId, Blog blog) {
-        return Response.ok().entity(this.blogService.updateBlog(postId,blog)).build();
+    @Path("/{id}")
+    public Response updateBlog(@PathParam("id") long postId, Blog blog) {
+        Blog newBlog = this.blogService.updateBlog(postId,blog).orElseThrow(() ->
+                new WebApplicationException("Blog wurde nicht gefunden", Response.Status.NOT_FOUND));
+        return Response.ok().entity(newBlog).build();
     }
 
     @DELETE

@@ -1,6 +1,7 @@
 package ch.hftm.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
@@ -45,25 +46,22 @@ public class BlogService {
         return Response.status(204).build();
     }
 
+    //PUT
+    //Blog Datum Fehlt, jedoch zu komplex für mich momentan
+    //Nicht vergessen noch machen!!!
     @Transactional
-    public Blog updateBlog(int id, Blog updatedBlog) {
-        Blog gefundenerBlog = this.blogRepository.findBlog(id);
-        if(gefundenerBlog != null) {
-
-            gefundenerBlog.setAuthor(updatedBlog.getAuthor());
-            gefundenerBlog.setTitel(updatedBlog.getTitel());
-            gefundenerBlog.setBeschreibung(updatedBlog.getBeschreibung());
-            gefundenerBlog.setLikeVonMir(updatedBlog.getLikeVonMir());
-            gefundenerBlog.setMeineFavoriten(updatedBlog.getMeineFavoriten());
-            //Blog Datum Fehlt, jedoch zu komplex momentan
-
-            this.blogRepository.update(gefundenerBlog);
-            return gefundenerBlog;
-        }
-
-        return null;
+    public Optional<Blog> updateBlog(long id, Blog updatedBlog) {
+        Optional<Blog> founded = this.blogRepository.findByIdOptional(id);
+        founded.ifPresent(blogAktuallisieren -> {
+            blogAktuallisieren.setGast(updatedBlog.getGast());
+            blogAktuallisieren.setAuthor(updatedBlog.getAuthor());
+            blogAktuallisieren.setTitel(updatedBlog.getTitel());
+            blogAktuallisieren.setBeschreibung(updatedBlog.getBeschreibung());
+            blogAktuallisieren.setLikeVonMir(updatedBlog.getLikeVonMir());
+            blogAktuallisieren.setMeineFavoriten(updatedBlog.getMeineFavoriten());
+            this.blogRepository.update(blogAktuallisieren);
+        });
+        return founded;
     }
-
-
 
 }
