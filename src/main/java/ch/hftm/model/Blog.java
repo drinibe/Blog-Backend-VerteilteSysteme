@@ -2,8 +2,10 @@ package ch.hftm.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Setter
@@ -16,8 +18,14 @@ public class Blog {
     @Id
     @GeneratedValue
     private Long id;
+
+    @NotBlank
+    @Size(min = 2, max = 30, message ="Fehler: Der Titel darf nicht mehr als 30 Zeilen besitzen")
     @NonNull
     private String titel;
+
+    @NotBlank
+    @Size(min = 2, max = 250, message ="Fehler: Sie haben mehr als 250 Zeichen oder weniger als 2 Zeichen eingegeben.")
     @NonNull
     private String beschreibung;
 
@@ -25,6 +33,7 @@ public class Blog {
     private Boolean likeVonMir;
     private Boolean meineFavoriten;
 
+    @NotBlank
     @NonNull
     private LocalDate blogDatum;
 
@@ -38,8 +47,10 @@ public class Blog {
     private Gast gast;
 
     //Kommentar
-    @ManyToOne (cascade = CascadeType.ALL)
-    private Kommentar kommentar;
-    
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Kommentar> kommentar;
 
+    public void addComment(Kommentar kommentar) {
+        this.kommentar.add(kommentar);
+    }
 }

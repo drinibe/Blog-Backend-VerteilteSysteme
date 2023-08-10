@@ -3,6 +3,11 @@ package ch.hftm.service;
 import java.util.List;
 import java.util.Optional;
 
+import ch.hftm.model.Kommentar;
+import ch.hftm.service.dto.BlogDto;
+import ch.hftm.service.dto.CommentDtos;
+import ch.hftm.service.mapper.BlogMapper;
+import ch.hftm.service.mapper.CommentMapper;
 import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
 
@@ -25,7 +30,9 @@ public class BlogService {
         logger.info("Returning " + blogs.size() + " blogs");
         return blogs;
     }
-
+    public Optional<Blog> getBlog(long id ) {
+        return blogRepository.findByIdOptional(id);
+    }
 
     @Transactional
     public void addBlog(Blog blog) {
@@ -62,6 +69,22 @@ public class BlogService {
             this.blogRepository.update(blogAktuallisieren);
         });
         return founded;
+    }
+
+    @Transactional
+    public long addDtoBlog(BlogDto.NewBlogDto blogDto) {
+        Blog blog = new BlogMapper().toValidBlog(blogDto);
+        blogRepository.persist(blog);
+        return  blog.getId();
+    }
+
+    @Transactional
+    public long addDtoComment(CommentDtos.NewCommentDto commentDto, int id) {
+        Blog blog = getBlog(id).orElseThrow();
+        Kommentar kommentar = new CommentMapper().toValidBlogComment(commentDto);
+        blog.addComment(kommentar);
+        blogRepository.persist(blog);
+        return blog.getId();
     }
 
 }
