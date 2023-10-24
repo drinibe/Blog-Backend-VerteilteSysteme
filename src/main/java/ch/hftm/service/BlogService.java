@@ -53,9 +53,7 @@ public class BlogService {
         return Response.status(204).build();
     }
 
-    //PUT
-    //Blog Datum Fehlt, jedoch zu komplex für mich momentan
-    //Nicht vergessen noch machen!!!
+
     @Transactional
     public Optional<Blog> updateBlog(long id, Blog updatedBlog) {
         Optional<Blog> founded = this.blogRepository.findByIdOptional(id);

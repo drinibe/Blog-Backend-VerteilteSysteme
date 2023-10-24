@@ -2,8 +2,11 @@ package ch.hftm.resource;
 
 import ch.hftm.model.Blog;
 import ch.hftm.service.BlogService;
+import ch.hftm.service.dto.CommentDtos;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -26,6 +29,7 @@ public class BlogResource {
 
     //POST erstellt Objekte
     @POST
+    @RolesAllowed({"admin", "author"})
     @Consumes(MediaType.APPLICATION_JSON)
     public void addBlog(Blog blog) {
         this.blogService.addBlog(blog);
@@ -33,6 +37,7 @@ public class BlogResource {
 
     @PUT
     @Path("/{id}")
+    @RolesAllowed({"admin", "author"})
     public Response updateBlog(@PathParam("id") long postId, Blog blog) {
         Blog newBlog = this.blogService.updateBlog(postId,blog).orElseThrow(() ->
                 new WebApplicationException("Blog wurde nicht gefunden", Response.Status.NOT_FOUND));
@@ -41,11 +46,18 @@ public class BlogResource {
 
     @DELETE
     @Path("/{id}")
+    @RolesAllowed({"admin", "author"})
     public Response entfernenBlog(@PathParam("id") Long id) {
         return this.blogService.entfernenBlog(id);
     }
 
-
+    @POST
+    @Path("/{id}/comments")
+    @RolesAllowed({"admin","benutzer"})
+    public Response addComment(int id, @Valid CommentDtos.NewCommentDto commentDto) {
+        this.blogService.addDtoComment(commentDto, id);
+        return Response.status(201).build();
+    }
 
 
 }
