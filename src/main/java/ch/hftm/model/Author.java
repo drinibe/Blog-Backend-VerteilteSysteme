@@ -39,10 +39,10 @@ public class Author {
     @NonNull
     private String benutzername;
 
-    @NotBlank
-    @NonNull
-    @JsonbDateFormat("dd.MM.yyyy")
-    private LocalDate geburtstag;
+   // @NotBlank
+    //@NonNull
+    //@JsonbDateFormat("dd.MM.yyyy")
+    //private LocalDate geburtstag;
 
     @NotBlank
     @Email

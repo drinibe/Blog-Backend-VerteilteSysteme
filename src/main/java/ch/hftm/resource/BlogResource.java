@@ -2,6 +2,7 @@ package ch.hftm.resource;
 
 import ch.hftm.model.Blog;
 import ch.hftm.service.BlogService;
+import ch.hftm.service.dto.BlogDto;
 import ch.hftm.service.dto.CommentDtos;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -29,10 +30,11 @@ public class BlogResource {
 
     //POST erstellt Objekte
     @POST
-    @RolesAllowed({"admin", "author"})
     @Consumes(MediaType.APPLICATION_JSON)
-    public void addBlog(Blog blog) {
-        this.blogService.addBlog(blog);
+    @RolesAllowed({"admin", "author"})
+    public Response addBlog(@Valid BlogDto.NewBlogDto blogDto) {
+        this.blogService.addDtoBlog(blogDto);
+        return Response.status(201).build();
     }
 
     @PUT

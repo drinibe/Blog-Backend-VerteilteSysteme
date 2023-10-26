@@ -14,7 +14,6 @@ public interface BlogDto {
     public class NewBlogDto {
         private String titel;
         private String beschreibung;
-        private LocalDate blogDatum;
     }
 
 }

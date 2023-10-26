@@ -33,10 +33,6 @@ public class Blog {
     private Boolean likeVonMir;
     private Boolean meineFavoriten;
 
-    @NotBlank
-    @NonNull
-    private LocalDate blogDatum;
-
 
     //Author
     @ManyToOne (cascade = CascadeType.ALL)

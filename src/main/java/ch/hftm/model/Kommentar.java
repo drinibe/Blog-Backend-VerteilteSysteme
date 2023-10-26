@@ -28,8 +28,8 @@ public class Kommentar {
     @NonNull
     private String kommentarAuthor;
     @NotBlank
-    @NonNull
-    private LocalDate kommentarDatum;
+    //@NonNull
+    //private LocalDate kommentarDatum;
 
     private Boolean kommentarLikeVonMir;
 

@@ -10,7 +10,7 @@ public interface CommentDtos {
 
     public record NewCommentDto(String kommentarText, String kommentarAuthor, LocalDate kommentarDatum){
         public Kommentar toComment() {
-            return new Kommentar(kommentarText, kommentarAuthor, kommentarDatum);
+            return new Kommentar(kommentarText, kommentarAuthor);
         }
     }
 }

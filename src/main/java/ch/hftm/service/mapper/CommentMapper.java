@@ -6,6 +6,6 @@ import ch.hftm.service.dto.CommentDtos;
 
 public class CommentMapper {
     public Kommentar toValidBlogComment(CommentDtos.NewCommentDto commentDto) {
-        return  new Kommentar(commentDto.kommentarText(), commentDto.kommentarAuthor(), commentDto.kommentarDatum());
+        return  new Kommentar(commentDto.kommentarText(), commentDto.kommentarAuthor());
     }
 }

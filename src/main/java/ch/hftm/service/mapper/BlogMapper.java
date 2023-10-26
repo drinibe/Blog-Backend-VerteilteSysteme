@@ -9,6 +9,6 @@ import jakarta.validation.Valid;
 public class BlogMapper {
     @Valid
     public Blog toValidBlog(BlogDto.NewBlogDto blogDto) {
-        return new Blog(blogDto.getTitel(), blogDto.getBeschreibung(), blogDto.getBlogDatum());
+        return new Blog(blogDto.getTitel(), blogDto.getBeschreibung());
     }
 }

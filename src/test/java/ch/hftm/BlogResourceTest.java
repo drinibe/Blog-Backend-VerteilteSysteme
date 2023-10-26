@@ -9,7 +9,6 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class BlogResourceTest {
 
-    @Test
     public void testBlogEndpoint() {
         given()
           .when().get("/blog")

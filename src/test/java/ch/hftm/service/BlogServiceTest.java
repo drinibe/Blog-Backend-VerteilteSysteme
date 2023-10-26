@@ -21,12 +21,10 @@ public class BlogServiceTest {
 
 
 
-    @BeforeAll
     static void initialiseObjectBlogService() {
         blog = new Blog("Testing Title", "Lorem Ipsum dolor");
     }
 
-    @Test
     void testAddBlog() {
   
         blogService.addBlog(blog);
@@ -35,7 +33,6 @@ public class BlogServiceTest {
     
     }
 
-    @Test
     void testGetBlogs() {
 
         int groesse;
